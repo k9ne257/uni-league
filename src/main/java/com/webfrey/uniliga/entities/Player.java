@@ -18,5 +18,6 @@ public class Player {
     private String name;
     private String nickName;
     private String team;
+    private int matchesPlayed;
 
 }
