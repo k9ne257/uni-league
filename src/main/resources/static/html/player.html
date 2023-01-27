@@ -31,9 +31,30 @@
     </div>
 </div>
 <div class="row justify-content-center">
-<table class="table">
+    <table class="table">
+        <thead>
+        <tr>
+            <th> id</th>
+            <th> Name</th>
+            <th> Spitzname</th>
+            <th> Team</th>
+            <th> Spielanzahl</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${players.empty}">
+            <td colspan="2"> Keine Spieler Vorhanden</td>
+        </tr>
+        <tr th:each="book : ${players}">
+            <td><span th:text="${player.id}"> Id </span></td>
+            <td><span th:text="${player.name}"> Name </span></td>
+            <td><span th:text="${player.nickName}"> Spitzname </span></td>
+            <td><span th:text="${player.team}"> Team </span></td>
+            <td><span th:text="${player.matchesPlayed}"> Spielanzahl </span></td>
+        </tr>
+        </tbody>
 
-</table>
+    </table>
 
 </div>
 

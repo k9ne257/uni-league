@@ -1,13 +1,13 @@
 package com.webfrey.uniliga.services;
 
-import com.webfrey.uniliga.repositories.MatchRepository;
+import com.webfrey.uniliga.repositories.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 
-public class MatchService {
+public class GameService {
 
     @Autowired
-    private MatchRepository matchRepository;
+    private GameRepository gameRepository;
 }
