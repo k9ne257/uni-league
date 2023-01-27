@@ -35,14 +35,14 @@ public class PlayerController {
     }
 
     @PostMapping("players/insert")
-    public String insertPlayer(Player player, Model model){
+    public RedirectView insertPlayer(Player player, Model model){
         playerService.addPlayer(player);
-        return "/players";
+        return new RedirectView("/players");
     }
 
     @PostMapping("players/edit")
     public String updatePlayerInfo(Player player){
         playerService.updatePlayer(player);
-        return "/players";
+        return "players";
     }
 }
