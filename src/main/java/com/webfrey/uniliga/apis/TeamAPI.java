@@ -15,15 +15,15 @@ import java.util.List;
 public class TeamAPI {
 
     @Autowired
-    private TeamService teamsService;
+    private TeamService teamService;
 
     @GetMapping("/{id}")
     public Team getTeamsById(@PathVariable int id){
-        return teamsService.getById(id);
+        return teamService.getById(id);
     }
 
     @GetMapping("/name/{name}")
-    public Team getteamByName(@PathVariable String name){
+    public List<Team> getteamByName(@PathVariable String name){
         return teamService.getByName(name);
     }
 }
