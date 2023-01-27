@@ -3,7 +3,9 @@ package com.webfrey.uniliga.apis;
 import com.webfrey.uniliga.entities.Player;
 import com.webfrey.uniliga.services.PlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.List;
 
@@ -33,5 +35,6 @@ public class PlayerAPI {
     @PostMapping("/insert")
     public void insertPlayer(Player player){
         playerService.addPlayer(player);
+        new RedirectView("/players");
     }
 }

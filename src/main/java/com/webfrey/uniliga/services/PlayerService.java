@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PlayerService {
@@ -27,5 +28,17 @@ public class PlayerService {
 
     public void addPlayer(Player player) {
         playerRepository.save(player);
+    }
+
+    public void updatePlayer(Player player) {
+        Optional<Player> optionalPlayer = playerRepository.findById(player.getId());
+        if (optionalPlayer.isPresent()){
+            Player repoPlayer = optionalPlayer.get();
+            repoPlayer.setName(player.getName());
+            repoPlayer.setNickName(player.getNickName());
+            repoPlayer.setTeam(player.getTeam());
+            repoPlayer.setMatchesPlayed(player.getMatchesPlayed());
+            playerRepository.save(repoPlayer);
+        }
     }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="h-100">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,7 +23,8 @@
 <body class="container">
 <div class="row justify-content-center">
     <h1>Spieler Hinzufügen</h1>
-    <form class="form-group col-6" action="/api/player/insert" method="post">
+<!--    <form class="form-group col-6" action="/api/player/insert" method="post">-->
+    <form class="form-group col-6" th:action="@{/players/insert}" th:object="${player}" method="post">
         <div class="row">
             <h3>Name</h3>
         </div>
