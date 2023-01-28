@@ -47,4 +47,11 @@ public class PlayerController {
         playerService.updatePlayer(player);
         return "players";
     }
+
+    @GetMapping("/deletePlayer/{id}")
+    public RedirectView deletePlayer(@PathVariable int id) {
+        playerService.deletePlayer(id);
+        return new RedirectView("/players");
+
+    }
 }

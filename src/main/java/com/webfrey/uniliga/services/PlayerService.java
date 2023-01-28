@@ -34,11 +34,16 @@ public class PlayerService {
         Optional<Player> optionalPlayer = playerRepository.findById(player.getId());
         if (optionalPlayer.isPresent()){
             Player repoPlayer = optionalPlayer.get();
+            System.out.println(repoPlayer.getId());
             repoPlayer.setName(player.getName());
             repoPlayer.setNickName(player.getNickName());
             repoPlayer.setTeam(player.getTeam());
             repoPlayer.setGamesPlayed(player.getGamesPlayed());
             playerRepository.save(repoPlayer);
         }
+    }
+
+    public void deletePlayer(int id) {
+        playerRepository.deleteById(id);
     }
 }
