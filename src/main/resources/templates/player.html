@@ -39,6 +39,7 @@
             <th> Spitzname</th>
             <th> Team</th>
             <th> Spielanzahl</th>
+            <th> Aktion</th>
         </tr>
         </thead>
         <tbody>
@@ -46,11 +47,23 @@
             <td colspan="2"> Keine Spieler Vorhanden</td>
         </tr>
         <tr th:each="player : ${players}">
-            <td><span th:text="${player.id}"> Id </span></td>
-            <td><span th:text="${player.name}"> Name </span></td>
-            <td><span th:text="${player.nickName}"> Spitzname </span></td>
-            <td><span th:text="${player.team}"> Team </span></td>
-            <td><span th:text="${player.matchesPlayed}"> Spielanzahl </span></td>
+            <td><span th:text="${player.id}"></span></td>
+            <td><span th:text="${player.name}"></span></td>
+            <td><span th:text="${player.nickName}"></span></td>
+            <td><span th:text="${player.team}"></span></td>
+            <td><span th:text="${player.getGamesPlayed}"></span></td>
+            <td>
+                <a th:href="@{/editPlayer/{id}(id=${player.id})}">
+                    <button class="btn btn-primary">
+                        <img src="/assets/edit.svg">
+                    </button>
+                </a>
+                <a th:href="@{/deletePlayer/{id}(id=${player.id})}">
+                    <button class="btn btn-primary" style="background: #8c0101">
+                        <img src="/assets/delete.svg">
+                    </button>
+                </a>
+            </td>
         </tr>
         </tbody>
 

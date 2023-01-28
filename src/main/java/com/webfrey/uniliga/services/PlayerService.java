@@ -37,7 +37,7 @@ public class PlayerService {
             repoPlayer.setName(player.getName());
             repoPlayer.setNickName(player.getNickName());
             repoPlayer.setTeam(player.getTeam());
-            repoPlayer.setMatchesPlayed(player.getMatchesPlayed());
+            repoPlayer.setGamesPlayed(player.getGamesPlayed());
             playerRepository.save(repoPlayer);
         }
     }

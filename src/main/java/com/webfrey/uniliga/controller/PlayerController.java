@@ -24,13 +24,15 @@ public class PlayerController {
     }
 
     @GetMapping("/addPlayer")
-    public String addPlayerPage() {
+    public String addPlayerPage(Model model) {
+        model.addAttribute("playerPresent",false);
         return "addPlayer";
     }
 
     @GetMapping("/editPlayer/{id}")
     public String editPlayerPage(@PathVariable int id,Model model) {
         model.addAttribute("player",playerService.getById(id));
+        model.addAttribute("playerPresent",true);
         return "addPlayer";
     }
 
