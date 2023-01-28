@@ -26,4 +26,10 @@ public class TeamAPI {
     public List<Team> getteamByName(@PathVariable String name){
         return teamService.getByName(name);
     }
+
+
+    @PostMapping("/insert")
+    public void insertTeam(Team team){
+        teamService.addTeam(team);
+    }
 }

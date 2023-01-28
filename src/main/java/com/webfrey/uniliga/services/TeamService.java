@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TeamService {
@@ -20,5 +21,26 @@ public class TeamService {
 
     public List<Team> getByName(String name){
         return teamRepository.findByName(name);
+    }
+
+    public void addTeam(Team team)  {
+        teamRepository.save(team);
+    }
+
+    public void updateTeam(Team team) {
+        Optional<Team> optionalTeam = teamRepository.findById(team.getId());
+        if (optionalTeam.isPresent()){
+            Team repoTeam = optionalTeam.get();
+            repoTeam.setName(team.getName());
+            repoTeam.setLogoPath(team.getLogoPath());
+            repoTeam.setWins(team.getWins());
+            repoTeam.setLosses(team.getLosses());
+            repoTeam.setDraws(team.getDraws());
+            teamRepository.save(repoTeam);
+        }
+    }
+
+    public List<Team> getTeams() {
+        return teamRepository.findAll();
     }
 }
