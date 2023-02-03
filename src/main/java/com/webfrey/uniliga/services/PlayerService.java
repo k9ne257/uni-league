@@ -32,9 +32,11 @@ public class PlayerService {
 
     public void updatePlayer(Player player) {
         Optional<Player> optionalPlayer = playerRepository.findById(player.getId());
+
         if (optionalPlayer.isPresent()){
+            System.out.println("new player deatils: " + player);
             Player repoPlayer = optionalPlayer.get();
-            System.out.println(repoPlayer.getId());
+            System.out.println("old player details: " + repoPlayer.getId());
             repoPlayer.setName(player.getName());
             repoPlayer.setNickName(player.getNickName());
             repoPlayer.setTeam(player.getTeam());
@@ -42,7 +44,6 @@ public class PlayerService {
             playerRepository.save(repoPlayer);
         }
     }
-
     public void deletePlayer(int id) {
         playerRepository.deleteById(id);
     }

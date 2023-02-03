@@ -53,12 +53,13 @@
             <td><span th:text="${player.team}"></span></td>
             <td><span th:text="${player.getGamesPlayed}"></span></td>
             <td>
-                <a th:href="@{/editPlayer/{id}(id=${player.id})}">
+                <a th:class="mx-2" th:href="@{/editPlayer/{id}(id=${player.id})}">
                     <button class="btn btn-primary">
                         <img src="/assets/edit.svg">
                     </button>
                 </a>
-                <a th:href="@{/deletePlayer/{id}(id=${player.id})}">
+
+                <a th:class="mx-2" th:href="@{/deletePlayer/{id}(id=${player.id})}">
                     <button class="btn btn-primary" style="background: #8c0101">
                         <img src="/assets/delete.svg">
                     </button>

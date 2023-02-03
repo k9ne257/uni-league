@@ -33,6 +33,7 @@ public class PlayerController {
     public String editPlayerPage(@PathVariable int id,Model model) {
         model.addAttribute("player",playerService.getById(id));
         model.addAttribute("playerPresent",true);
+        model.addAttribute("playerId",id);
         return "addPlayer";
     }
 
@@ -43,9 +44,9 @@ public class PlayerController {
     }
 
     @PostMapping("players/edit")
-    public String updatePlayerInfo(Player player){
+    public RedirectView updatePlayerInfo(Player player, Model model){
         playerService.updatePlayer(player);
-        return "players";
+        return new RedirectView("/players");
     }
 
     @GetMapping("/deletePlayer/{id}")

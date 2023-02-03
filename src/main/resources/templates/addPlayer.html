@@ -30,8 +30,11 @@
         <h1>Spieler Hinzufügen</h1>
     </div>
 
-    <!--    <form class="form-group col-6" action="/api/player/insert" method="post">-->
-    <form class="form-group col-6" th:action="@{/players/insert}" th:object="${player}" method="post">
+
+    <form class="form-group col-6" th:action="@{${playerPresent ?  '/players/edit' : '/players/insert'}}" th:object="${player}" method="post">
+        <div th:if="${playerPresent}">
+            <input class="form-control" name="id" type="number" th:value="${player.id}" hidden>
+        </div>
         <div class="row">
             <h3>Name</h3>
         </div>
