@@ -20,13 +20,13 @@ public class PlayerController {
     @GetMapping("/players")
     public String showAllPlayers(Model model) {
         model.addAttribute("players", playerService.getPlayers());
-        return "player";
+        return "players/player";
     }
 
     @GetMapping("/addPlayer")
     public String addPlayerPage(Model model) {
         model.addAttribute("playerPresent",false);
-        return "addPlayer";
+        return "players/addPlayer";
     }
 
     @GetMapping("/editPlayer/{id}")
@@ -34,7 +34,7 @@ public class PlayerController {
         model.addAttribute("player",playerService.getById(id));
         model.addAttribute("playerPresent",true);
         model.addAttribute("playerId",id);
-        return "addPlayer";
+        return "players/addPlayer";
     }
 
     @PostMapping("players/insert")
@@ -53,6 +53,5 @@ public class PlayerController {
     public RedirectView deletePlayer(@PathVariable int id) {
         playerService.deletePlayer(id);
         return new RedirectView("/players");
-
     }
 }

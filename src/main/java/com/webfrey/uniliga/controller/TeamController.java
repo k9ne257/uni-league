@@ -1,8 +1,6 @@
 package com.webfrey.uniliga.controller;
 
-import com.webfrey.uniliga.entities.Player;
 import com.webfrey.uniliga.entities.Team;
-import com.webfrey.uniliga.services.PlayerService;
 import com.webfrey.uniliga.services.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -15,32 +13,41 @@ public class TeamController {
     @Autowired
     private TeamService teamService;
 
-    @GetMapping("/team")
-    public String showAllTeam(Model model) {
+    @GetMapping("/teams")
+    public String showAllTeams(Model model) {
         model.addAttribute("teams", teamService.getTeams());
-        return "team";
+        return "teams/team";
     }
 
     @GetMapping("/addTeam")
-    public String addTeamPage() {
-        return "addTeam";
+    public String addTeamPage(Model model) {
+        model.addAttribute("teamPresent",false);
+        return "teams/addTeam";
     }
 
     @GetMapping("/editTeam/{id}")
-    public String editTeamPage(@PathVariable int id, Model model) {
-        model.addAttribute("team",teamService.getById(id));
-        return "addTeam";
+    public String editTeamPage(@PathVariable int id,Model model) {
+        model.addAttribute("Team", teamService.getById(id));
+        model.addAttribute("teamPresent",true);
+        model.addAttribute("teamId",id);
+        return "teams/addTeam";
     }
 
-    @PostMapping("team/insert")
+    @PostMapping("teams/insert")
     public RedirectView insertTeam(Team team, Model model){
         teamService.addTeam(team);
         return new RedirectView("/teams");
     }
 
     @PostMapping("teams/edit")
-    public String updateTeamInfo(Team team){
+    public RedirectView updateTeamInfo(Team team, Model model){
         teamService.updateTeam(team);
-        return "teams";
+        return new RedirectView("/teams");
+    }
+
+    @GetMapping("/deleteTeam/{id}")
+    public RedirectView deleteTeam(@PathVariable int id) {
+        teamService.deleteTeam(id);
+        return new RedirectView("/teams");
     }
 }
