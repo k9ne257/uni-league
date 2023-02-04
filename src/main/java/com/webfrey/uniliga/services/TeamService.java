@@ -24,6 +24,7 @@ public class TeamService {
     }
 
     public void addTeam(Team team)  {
+        System.out.println(team);
         teamRepository.save(team);
     }
 
@@ -42,5 +43,10 @@ public class TeamService {
 
     public List<Team> getTeams() {
         return teamRepository.findAll();
+    }
+
+    public void deleteTeam(int id) {
+        teamRepository.deleteById(id);
+
     }
 }

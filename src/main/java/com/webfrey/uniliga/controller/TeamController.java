@@ -3,12 +3,14 @@ package com.webfrey.uniliga.controller;
 import com.webfrey.uniliga.entities.Team;
 import com.webfrey.uniliga.services.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
+@Controller
 public class TeamController {
     @Autowired
     private TeamService teamService;
@@ -27,9 +29,9 @@ public class TeamController {
 
     @GetMapping("/editTeam/{id}")
     public String editTeamPage(@PathVariable int id,Model model) {
-        model.addAttribute("Team", teamService.getById(id));
+        System.out.println(teamService.getById(id));
+        model.addAttribute("team", teamService.getById(id));
         model.addAttribute("teamPresent",true);
-        model.addAttribute("teamId",id);
         return "teams/addTeam";
     }
 

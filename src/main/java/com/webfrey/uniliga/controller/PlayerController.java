@@ -33,7 +33,6 @@ public class PlayerController {
     public String editPlayerPage(@PathVariable int id,Model model) {
         model.addAttribute("player",playerService.getById(id));
         model.addAttribute("playerPresent",true);
-        model.addAttribute("playerId",id);
         return "players/addPlayer";
     }
 
