@@ -35,6 +35,7 @@ public class TeamService {
             repoTeam.setName(team.getName());
             repoTeam.setLogoPath(team.getLogoPath());
             repoTeam.setWins(team.getWins());
+
             repoTeam.setLosses(team.getLosses());
             repoTeam.setDraws(team.getDraws());
             teamRepository.save(repoTeam);
