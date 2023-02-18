@@ -10,4 +10,10 @@ public class GameService {
 
     @Autowired
     private GameRepository gameRepository;
+
+    public void generateSeason(){
+
+    }
+
+    void saveSeason
 }

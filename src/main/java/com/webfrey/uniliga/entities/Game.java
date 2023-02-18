@@ -24,8 +24,8 @@ public class Game {
     private String team_B;
     private LocalDate date;
     private LocalTime time;
-    private String wins;
-    private String losses;
+    private String winner;
+    private String loser;
     private int points;
     private String referee;
 }
