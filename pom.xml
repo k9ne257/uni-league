@@ -121,6 +121,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>uni-league</finalName>
 	</build>
 
 </project>

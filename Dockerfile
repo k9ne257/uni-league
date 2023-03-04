@@ -1,3 +1,3 @@
 FROM openjdk
-ADD target/*.jar  app.jar
-ENTRYPOINT ["java","-jar", "app.jar"]
+ADD target/*.jar  uni-league.jar
+ENTRYPOINT ["java","-jar", "uni-league.jar"]
