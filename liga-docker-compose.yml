@@ -1,0 +1,6 @@
+version: '3'
+services:
+  uni-liga:
+    image: app
+    ports:
+      - 8080:8080

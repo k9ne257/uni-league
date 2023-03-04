@@ -17,8 +17,6 @@ public class GameAPI {
 
     @GetMapping("/{season}")
     public List<Game> getSeasongame(@PathVariable String season){
-
         return gameService.generateSeason();
-
     }
 }

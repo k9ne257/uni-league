@@ -11,8 +11,11 @@ import java.util.Optional;
 @Service
 public class PlayerService {
 
-    @Autowired
     private PlayerRepository playerRepository;
+
+    public PlayerService(PlayerRepository playerRepository) {
+        this.playerRepository = playerRepository;
+    }
 
     public List<Player> getPlayers() {
         return playerRepository.findAll();
